@@ -1,0 +1,20 @@
+#!/usr/bin/env escript
+
+main([FName]) ->
+   {ok, Forms} = epp:parse_file(FName, [], []),
+   All = lists:concat([ printer(Form) || Form <- Forms]),
+   io:put_chars(All).
+
+printer(F = {function,_,_,_,_}) ->
+   erl_pp:form(F) ++ "\n";
+printer({attribute,_,file,_}) -> "";
+printer(A = {attribute,_,compile,_}) ->
+   erl_pp:form(A) ++ "\n";
+printer(M = {attribute,_,module,_}) ->
+   erl_pp:form(M);
+printer(M = {attribute,_,type,_}) ->
+   erl_pp:form(M) ++ "\n";
+printer(S = {attribute,_,spec,_}) ->
+   erl_pp:form(S);
+printer(X) ->
+   erl_pp:form(X).

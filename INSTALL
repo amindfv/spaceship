@@ -1,0 +1,11 @@
+You'll need a recent version of Erlang and the Haskell Platform.
+
+To run the example, first install the dependencies with
+
+   cabal install --only-dependencies
+
+Then run
+
+   runghc Language/Spaceship/Transcompiler.hs examples/HanoiTower.hs
+
+That will generate examples/hanoi_tower.erl

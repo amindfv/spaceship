@@ -1,0 +1,22 @@
+name:                spaceship
+version:             0.0.1
+synopsis:            A DSL for OTP on the Erlang VM
+author:              Tom Murphy
+category:            Language
+build-type:          Simple
+cabal-version:       >=1.8
+library
+  exposed-modules:     
+     Language.Spaceship
+     Language.Spaceship.GbTree
+  
+  other-modules:       
+     Language.Spaceship.Transcompiler
+  
+  build-depends:       base ==4.5.*,
+                       -- imprecise:
+                       containers,
+                       filepath,
+                       process,
+                       haskell-src-exts
+  
