@@ -20,7 +20,7 @@
 --   To see it in action, you can type ```C-u 5 M-x hanoi``` in emacs
 
 {-# LANGUAGE NoImplicitPrelude #-}
-module HanoiTower where
+module HanoiTower (newTower, move, positionSize) where
 
 import Language.Spaceship
 
@@ -69,7 +69,7 @@ moveMaybe t@(Tower ps) from to =
    case headMaybe (ps ! to) of
       Nothing -> movePrime t from to
       Just n  ->
-         if n <= (head (ps ! from))
+         if n >= (head (ps ! from))
             then movePrime t from to
             else Illegal
 

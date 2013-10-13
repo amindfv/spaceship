@@ -8,4 +8,6 @@ Then run
 
    runghc Language/Spaceship/Transcompiler.hs examples/HanoiTower.hs
 
-That will generate examples/hanoi_tower.erl
+That'll generate examples/hanoi_tower.erl. You can test the generated code with
+
+   cd examples; erlc hanoi_tower{,_tests}.erl && escript hanoi_tower_tests.beam
